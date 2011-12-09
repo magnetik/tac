@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.owl-ontologies.com/Ontology1323443732.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:p1="http://www.w3.org/2006/gen/ont#"
+    xmlns:p2="http://www.w3.org/2004/03/trix/rdfg-1/#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:p3="file:/mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1323443732.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:about="http://www.w3.org/2006/gen/ont#timeSpecificResource"/>
+  <rdfs:Class rdf:about="http://www.w3.org/2006/gen/ont#LanguageSpecificResource"/>
+  <rdfs:Class rdf:about="http://www.w3.org/2006/gen/ont#contentTypeSpecificResource"/>
+  <rdfs:Class rdf:about="http://ns.bergnet.org/tac/0.1/triple-access-control#Authorization"/>
+  <owl:ObjectProperty rdf:about="http://www.w3.org/2006/gen/ont#ContentTypeGeneric"/>
+  <rdf:Property rdf:about="http://purl.org/dc/terms/creator"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.1, Build 536)  http://protege.stanford.edu -->

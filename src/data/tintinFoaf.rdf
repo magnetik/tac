@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:admin="http://webns.net/mvcb/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="file:/mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="file:/mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf">
+  <foaf:PersonalProfileDocument rdf:about="file:/mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf">
+    <foaf:primaryTopic>
+      <foaf:Person rdf:ID="me">
+        <foaf:phone rdf:resource="tel:0606060606"/>
+        <foaf:workplaceHomepage rdf:resource="file:/mci/ei0912/garrone/ASR/Projet/lepetitvingtième.com"/>
+        <foaf:knows>
+          <foaf:Person>
+            <foaf:mbox rdf:resource="mailto:milou@example.com"/>
+            <foaf:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Milou</foaf:name>
+          </foaf:Person>
+        </foaf:knows>
+        <foaf:homepage rdf:resource="file:/mci/ei0912/garrone/ASR/Projet/www.herge.com"/>
+        <foaf:knows>
+          <foaf:Person>
+            <foaf:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Capitaine Hadock</foaf:name>
+            <foaf:mbox rdf:resource="mailto:c.hadock@example.com"/>
+          </foaf:Person>
+        </foaf:knows>
+        <foaf:family_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tin</foaf:family_name>
+        <foaf:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tin Tin</foaf:name>
+        <foaf:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mr</foaf:title>
+        <foaf:nick rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tintin</foaf:nick>
+        <foaf:givenname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tin</foaf:givenname>
+        <foaf:mbox rdf:resource="mailto:tintin@example.com"/>
+      </foaf:Person>
+    </foaf:primaryTopic>
+    <admin:errorReportsTo rdf:resource="mailto:leigh@ldodds.com"/>
+    <admin:generatorAgent rdf:resource="http://www.ldodds.com/foaf/foaf-a-matic"/>
+    <foaf:maker rdf:resource="file:/mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf#me"/>
+  </foaf:PersonalProfileDocument>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.1, Build 536)  http://protege.stanford.edu -->
