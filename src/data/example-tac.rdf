@@ -1,0 +1,92 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix tac: <http://ns.bergnet.org/tac/0.1/triple-access-control#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>.
+@prefix mywebid: <http://www.example.tld/card#>.
+
+# owner has full control
+[] a acl:Authorization;
+		tac:accessToTriple [ a tac:TripleAuthorization;
+		tac:mode acl:Read;
+		tac:mode acl:Write;
+		tac:filter [ a tac:Filter;
+			tac:subject mywebid:me ]];
+	acl:agent mywebid:me.
+
+
+# friends have read access to
+#  the fullname, nickname and all telephone numbers
+[] a acl:Authorization;
+	tac:accessToTriple [ a tac:TripleAuthorization;
+		tac:mode acl:Read;
+		tac:filter [ a tac:Filter;
+			tac:subject mywebid:me;
+			tac:predicate vcard:fn ]
+	], [
+		tac:mode acl:Read;
+		tac:filter [ a tac:Filter;
+			tac:subject mywebid:me;
+			tac:predicate vcard:nickname ]
+	], [
+		tac:mode acl:Read;
+		tac:filter [ a tac:Filter;
+			tac:subject mywebid:me;
+			tac:predicate vcard:tel ];
+		tac:children [	a acl:Authorization;
+			tac:accessToTriple [ a tac:TripleAuthorization;
+				tac:filter [ a tac:Filter;
+					tac:predicate rdf:type ]
+			], [
+				tac:filter [ a tac:Filter;
+					tac:predicate rdf:value ]]]];
+	acl:agent _:friends.
+
+
+# business contacts have read access
+#  to the fullname and work telephone numbers
+[] a acl:Authorization;
+	tac:accessToTriple [ a tac:TripleAuthorization;
+		tac:mode acl:Read;
+		tac:filter [ a tac:Filter;
+			tac:subject mywebid:me;
+			tac:predicate vcard:fn ]
+	], [
+		tac:mode acl:Read;
+		tac:filter [ a tac:Filter;
+			tac:subject mywebid:me;
+			tac:predicate vcard:tel ];
+		tac:children [	a acl:Authorization;
+			tac:accessToTriple [ a tac:TripleAuthorization;
+				tac:filter [ a tac:Filter;
+					tac:predicate rdf:type;
+					tac:object vcard:Work ];
+				tac:required "true"
+ 			], [
+				tac:filter [
+					tac:predicate rdf:type ]
+ 			], [
+ 				tac:filter [
+ 					rdf:predicate rdf:value ]]]];
+ 	acl:agent _:businessContacts.
+ 
+ 
+# data
+mywebid:me a foaf:Person;
+	vcard:fn "John Doe";
+	vcard:nickname "Johnny";
+	vcard:tel [
+		a vcard:Voice;
+		a vcard:Home;
+		rdf:value "+49 8765 4321"
+	], [
+		a vcard:Voice;
+		a vcard:Work;
+		rdf:value "+49 8765 5555" ].
+
+# groups
+_:friends a foaf:Group;
+	foaf:name "list of friends".
+
+_:businessContacts a foaf:Group;
+ 	foaf:name "business contacts".

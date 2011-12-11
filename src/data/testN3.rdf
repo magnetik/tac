@@ -1,0 +1,92 @@
+
+#Processed by Id: cwm.py,v 1.144 2003/09/14 20:20:20 timbl Exp 
+        #    using base file:/tmp/tmpXuNZFG-rdfconverter
+        
+#  Notation3 generation by
+#       notation3.py,v 1.148 2003/12/04 21:20:17 timbl Exp
+
+#   Base was: file:/tmp/tmpXuNZFG-rdfconverter
+     @prefix : <#> .
+     @prefix admin: <http://webns.net/mvcb/> .
+     @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+     @prefix owl: <http://www.w3.org/2002/07/owl#> .
+     @prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+     @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+     @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+     @prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+     @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+     @prefix xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+     @prefix acl: <http://www.w3.org/ns/auth/acl#>.
+     @prefix tac: <http://ns.bergnet.org/tac/0.1/triple-access-control#>.
+     
+    # owner has full control
+	[] a acl:Authorization;
+		tac:accessToTriple [ a tac:TripleAuthorization;
+		tac:mode acl:Read;
+		tac:mode acl:Write;
+		tac:filter [ a tac:Filter;
+			tac:subject :me ]];
+	acl:agent :me.
+    
+    # friends have read access to
+	#  the fullname, givenname and all telephone numbers
+	[] a acl:Authorization;
+	tac:accessToTriple [ a tac:TripleAuthorization;
+		tac:mode acl:Read;
+		tac:filter [ a tac:Filter;
+			tac:subject :me;
+			tac:predicate foaf:family_name ]
+	], [
+		tac:mode acl:Read;
+		tac:filter [ a tac:Filter;
+			tac:subject :me;
+			tac:predicate foaf:givenname ]
+	];
+	acl:agent _:friends.
+	
+	# example.com has read access
+	#  to the fullname 
+	[] a acl:Authorization;
+	tac:accessToTriple [ a tac:TripleAuthorization;
+		tac:mode acl:Read;
+		tac:filter [ a tac:Filter;
+			tac:subject :me;
+			tac:predicate foaf:name ]
+	];
+ 	acl:agent _:example.
+    
+    </mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf>     a foaf:PersonalProfileDocument;
+         admin:errorReportsTo <mailto:leigh@ldodds.com>;
+         admin:generatorAgent <http://www.ldodds.com/foaf/foaf-a-matic>;
+         foaf:maker </mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf#me>;
+         foaf:primaryTopic :me .
+    
+    :me     a foaf:Person;
+         foaf:family_name "Tin"^^xsd:string;
+         foaf:givenname "Tin"^^xsd:string;
+         foaf:homepage </mci/ei0912/garrone/ASR/Projet/www.herge.com>;
+         foaf:knows  [
+             a foaf:Person;
+             foaf:mbox <mailto:milou@example.com>;
+             foaf:name "Milou"^^xsd:string ],
+                 [
+             a foaf:Person;
+             foaf:mbox <mailto:c.hadock@example.com>;
+             foaf:name "Capitaine Hadock"^^xsd:string ];
+         foaf:mbox <mailto:tintin@example.com>;
+         foaf:name "Tin Tin"^^xsd:string;
+         foaf:nick "Tintin"^^xsd:string;
+         foaf:phone <tel:0606060606>;
+         foaf:title "Mr"^^xsd:string;
+         foaf:workplaceHomepage </mci/ei0912/garrone/ASR/Projet/lepetitvingtieme.com> .
+         
+    # groups
+	_:friends a foaf:Group;
+	foaf:name "list of friends".
+	
+	
+	_:example a foaf:Group;
+ 	foaf:name "example.com".
+    
+#ENDS

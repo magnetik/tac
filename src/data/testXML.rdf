@@ -1,0 +1,109 @@
+
+
+<!-- Processed by Id: cwm.py,v 1.144 2003/09/14 20:20:20 timbl Exp -->
+<!--     using base file:/tmp/tmpbwX867-rdfconverter-->
+
+
+<rdf:RDF xmlns="http://ns.bergnet.org/tac/0.1/triple-access-control#"
+    xmlns:acl="http://www.w3.org/ns/auth/acl#"
+    xmlns:admin="http://webns.net/mvcb/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:log="http://www.w3.org/2000/10/swap/log#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:tac="http://ns.bergnet.org/tac/0.1/triple-access-control#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#">
+
+    <foaf:PersonalProfileDocument rdf:about="/mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf">
+        <admin:errorReportsTo rdf:resource="mailto:leigh@ldodds.com"/>
+        <admin:generatorAgent rdf:resource="http://www.ldodds.com/foaf/foaf-a-matic"/>
+        <foaf:maker rdf:resource="/mci/ei0912/garrone/ASR/Projet/tintinFoaf.rdf#me"/>
+        <foaf:primaryTopic rdf:resource="#me"/>
+    </foaf:PersonalProfileDocument>
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/ns/auth/acl#Authorization"/>
+        <accessToTriple rdf:parseType="Resource">
+            <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#TripleAuthorization"/>
+            <filter rdf:parseType="Resource">
+                <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#Filter"/>
+                <subject rdf:resource="#me"/>
+            </filter>
+            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Read"/>
+            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Write"/>
+        </accessToTriple>
+        <acl:agent rdf:resource="#me"/>
+    </rdf:Description>
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/ns/auth/acl#Authorization"/>
+        <accessToTriple rdf:parseType="Resource">
+            <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#TripleAuthorization"/>
+            <filter rdf:parseType="Resource">
+                <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#Filter"/>
+                <predicate rdf:resource="http://xmlns.com/foaf/0.1/family_name"/>
+                <subject rdf:resource="#me"/>
+            </filter>
+            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Read"/>
+        </accessToTriple>
+        <accessToTriple rdf:parseType="Resource">
+            <filter rdf:parseType="Resource">
+                <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#Filter"/>
+                <predicate rdf:resource="http://xmlns.com/foaf/0.1/givenname"/>
+                <subject rdf:resource="#me"/>
+            </filter>
+            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Read"/>
+        </accessToTriple>
+        <acl:agent rdf:resource="#_gfriends"/>
+    </rdf:Description>
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/ns/auth/acl#Authorization"/>
+        <accessToTriple rdf:parseType="Resource">
+            <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#TripleAuthorization"/>
+            <filter rdf:parseType="Resource">
+                <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#Filter"/>
+                <predicate rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+                <subject rdf:resource="#me"/>
+            </filter>
+            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Read"/>
+        </accessToTriple>
+        <acl:agent rdf:resource="#_gexample"/>
+    </rdf:Description>
+
+    <foaf:Group rdf:about="#_gexample">
+        <foaf:name>example.com</foaf:name>
+    </foaf:Group>
+
+    <foaf:Group rdf:about="#_gfriends">
+        <foaf:name>list of friends</foaf:name>
+    </foaf:Group>
+
+    <foaf:Person rdf:about="#me">
+        <foaf:family_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tin</foaf:family_name>
+        <foaf:givenname rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tin</foaf:givenname>
+        <foaf:homepage rdf:resource="/mci/ei0912/garrone/ASR/Projet/www.herge.com"/>
+        <foaf:knows rdf:parseType="Resource">
+            <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+            <foaf:mbox rdf:resource="mailto:milou@example.com"/>
+            <foaf:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Milou</foaf:name>
+        </foaf:knows>
+        <foaf:knows rdf:parseType="Resource">
+            <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+            <foaf:mbox rdf:resource="mailto:c.hadock@example.com"/>
+            <foaf:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capitaine Hadock</foaf:name>
+        </foaf:knows>
+        <foaf:mbox rdf:resource="mailto:tintin@example.com"/>
+        <foaf:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tin Tin</foaf:name>
+        <foaf:nick rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tintin</foaf:nick>
+        <foaf:phone rdf:resource="tel:0606060606"/>
+        <foaf:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mr</foaf:title>
+        <foaf:workplaceHomepage rdf:resource="/mci/ei0912/garrone/ASR/Projet/lepetitvingtieme.com"/>
+    </foaf:Person>
+</rdf:RDF>
+
