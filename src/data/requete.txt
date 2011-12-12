@@ -2,16 +2,21 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX acl: <http://www.w3.org/ns/auth/acl#>
 PREFIX tac: <http://ns.bergnet.org/tac/0.1/triple-access-control#>
-PREFIX src: <file:///C:/Users/Julie/git/tac/src/data/testXML.rdf#>
+PREFIX src: <file:/mci/ei0912/garrone/git/tac/src/data/testXML.rdf#>
 
 CONSTRUCT {src:me ?predicate ?data}
   WHERE
     {
-	?group foaf:name "list of friends" .
-	?tacAccess acl:agent ?group .
-	?tacAccess tac:accessToTriple ?tripleAccessible .
-	?tripleAccessible tac:mode ?mode .
-	?tripleAccessible tac:filter ?tmpdata .
-	?tmpdata tac:predicate ?predicate .
-	src:me ?predicate ?data .
-    }
+	  ?group foaf:name "example.com" .
+	  ?tacAccess acl:agent ?group .
+	  ?tacAccess tac:accessToTriple ?tripleAccessible .
+	  ?tripleAccessible tac:mode ?mode .
+	  ?tripleAccessible tac:filter ?tmpdata .
+	{ ?tmpdata tac:predicate ?predicate . 
+	  src:me ?predicate ?data .} 
+	UNION 
+	{ ?tmpdata tac:subject ?subject .
+	  OPTIONAL { ?tmpdata tac:predicate ?p .}
+	  FILTER ( !bound(?p) ) .
+	  ?subject ?predicate ?data . }
+}
