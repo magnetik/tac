@@ -1,7 +1,6 @@
 
-
 <!-- Processed by Id: cwm.py,v 1.144 2003/09/14 20:20:20 timbl Exp -->
-<!--     using base file:/tmp/tmpbwX867-rdfconverter-->
+<!--     using base file:/tmp/tmp9TNvVT-rdfconverter-->
 
 
 <rdf:RDF xmlns="http://ns.bergnet.org/tac/0.1/triple-access-control#"
@@ -46,6 +45,34 @@
             <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#TripleAuthorization"/>
             <filter rdf:parseType="Resource">
                 <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#Filter"/>
+                <predicate rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+                <subject rdf:resource="#me"/>
+            </filter>
+            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Read"/>
+        </accessToTriple>
+        <acl:agent rdf:resource="#_gexample"/>
+    </rdf:Description>
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/ns/auth/acl#Authorization"/>
+        <accessToTriple rdf:parseType="Resource">
+            <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#TripleAuthorization"/>
+            <filter rdf:parseType="Resource">
+                <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#Filter"/>
+                <subject rdf:resource="#me"/>
+            </filter>
+            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Read"/>
+            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Write"/>
+        </accessToTriple>
+        <acl:agent rdf:resource="#_gtruc"/>
+    </rdf:Description>
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/ns/auth/acl#Authorization"/>
+        <accessToTriple rdf:parseType="Resource">
+            <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#TripleAuthorization"/>
+            <filter rdf:parseType="Resource">
+                <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#Filter"/>
                 <predicate rdf:resource="http://xmlns.com/foaf/0.1/family_name"/>
                 <subject rdf:resource="#me"/>
             </filter>
@@ -62,26 +89,16 @@
         <acl:agent rdf:resource="#_gfriends"/>
     </rdf:Description>
 
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/ns/auth/acl#Authorization"/>
-        <accessToTriple rdf:parseType="Resource">
-            <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#TripleAuthorization"/>
-            <filter rdf:parseType="Resource">
-                <rdf:type rdf:resource="http://ns.bergnet.org/tac/0.1/triple-access-control#Filter"/>
-                <predicate rdf:resource="http://xmlns.com/foaf/0.1/name"/>
-                <subject rdf:resource="#me"/>
-            </filter>
-            <mode rdf:resource="http://www.w3.org/ns/auth/acl#Read"/>
-        </accessToTriple>
-        <acl:agent rdf:resource="#_gexample"/>
-    </rdf:Description>
-
     <foaf:Group rdf:about="#_gexample">
         <foaf:name>example.com</foaf:name>
     </foaf:Group>
 
     <foaf:Group rdf:about="#_gfriends">
         <foaf:name>list of friends</foaf:name>
+    </foaf:Group>
+
+    <foaf:Group rdf:about="#_gtruc">
+        <foaf:name>truc</foaf:name>
     </foaf:Group>
 
     <foaf:Person rdf:about="#me">
@@ -106,4 +123,5 @@
         <foaf:workplaceHomepage rdf:resource="/mci/ei0912/garrone/ASR/Projet/lepetitvingtieme.com"/>
     </foaf:Person>
 </rdf:RDF>
+
 

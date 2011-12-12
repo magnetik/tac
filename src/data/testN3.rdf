@@ -28,9 +28,18 @@
 		tac:filter [ a tac:Filter;
 			tac:subject :me ]];
 	acl:agent :me.
+
+	# truc has full control
+	[] a acl:Authorization;
+		tac:accessToTriple [ a tac:TripleAuthorization;
+		tac:mode acl:Read;
+		tac:mode acl:Write;
+		tac:filter [ a tac:Filter;
+			tac:subject :me ]];
+	acl:agent _:truc.
     
     # friends have read access to
-	#  the fullname, givenname and all telephone numbers
+	#  the familly_name, givenname 
 	[] a acl:Authorization;
 	tac:accessToTriple [ a tac:TripleAuthorization;
 		tac:mode acl:Read;
@@ -89,4 +98,6 @@
 	_:example a foaf:Group;
  	foaf:name "example.com".
     
+    _:truc a foaf:Group;
+ 	foaf:name "truc".
 #ENDS

@@ -1,0 +1,21 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX acl: <http://www.w3.org/ns/auth/acl#>
+PREFIX tac: <http://ns.bergnet.org/tac/0.1/triple-access-control#>
+PREFIX src: <file:///mci/ei0912/garrone/git/tac/src/data/testXML.rdf#>
+
+SELECT ?mode ?subject
+
+  WHERE
+    {
+	?group foaf:name "truc" .
+	?tacAccess acl:agent ?group .
+	?tacAccess tac:accessToTriple ?tripleAccessible .
+	?tripleAccessible tac:mode ?mode .
+	?tripleAccessible tac:filter ?tmpdata .
+	
+	?tmpdata tac:subject ?subject
+	
+    }
+
+
